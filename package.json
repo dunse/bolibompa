@@ -1,0 +1,17 @@
+{
+  "name": "bolibompa",
+  "version": "0.0.0",
+  "description": "bolibompa =========",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dunse/bolibompa.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "ccc9480e466305551a255404344482e64ca64b89"
+}

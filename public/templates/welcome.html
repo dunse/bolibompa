@@ -1,0 +1,17 @@
+<a href="#/serviceOne">Service One</a>
+<div class="row" ng-repeat="action in mydata">
+<div class="small-12 columns">
+<br/><br/>
+
+<div class="row">
+<div class="small-12 columns">
+<a href="/api/{{action.name}}">{{action.name}}</a> - {{action.description}}<br/>
+<strong>required: </strong>{{action.inputs.required}}<br/>
+<strong>optional:</strong>{{action.inputs.optional}}<br/>
+</div>
+</div>
+
+
+</div>
+</div>
+

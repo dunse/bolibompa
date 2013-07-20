@@ -1,0 +1,10 @@
+<div class="row" ng-repeat="one in mydata">
+  <div class="small-6 columns">
+  {{one.type}}
+  </div>
+  <div class="small-6 columns">
+    <span class="label" ng-class="{alert: one.number < 2}">
+      {{one.number}}
+    </span>
+  </div>
+</div>
