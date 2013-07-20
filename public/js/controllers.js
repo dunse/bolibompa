@@ -1,6 +1,9 @@
 'use strict';
 
 /* Controllers */
+function NavigationCtrl($scope, $route) {
+  $scope.$route = $route;
+}
 
 function MainCtrl($scope, $http, $location, $rootScope, $timeout, ApiService) {
   console.log('in MainCtrl');
@@ -9,12 +12,16 @@ function MainCtrl($scope, $http, $location, $rootScope, $timeout, ApiService) {
   });
 }
 
-function ServiceOneCtrl($scope, $http, $location, $rootScope, $timeout, OneService) {
-  console.log('in ServiceOneCtrl');
+function ServiceOneCtrl($scope, $http, $location, $rootScope, $route, $routeParams, $timeout, OneService) {
+  $scope.thisActivePage = $route.current.activePage;
+
 	$timeout(function fetchall() {
     OneService.query({}, function(data) {
       $scope.mydata = data.ones;
     });
-		$timeout(fetchall, 10000);
+    // Only schedule if still on this view
+    if ($route.current.activePage) {
+		  $timeout(fetchall, 10000);
+    }
 	});
 }

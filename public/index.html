@@ -29,11 +29,36 @@
   <script src="js/vendor/jquery.min.js"></script>
 </head>
 <body>
-<div class="row collapse">
+<div class="row">
 <div class="large-12 columns">
+<h1>Bolibompa</h1>
+</div>
+</div>
+
+<div class="row">
+  <div class="small-12 columns">
+      <nav class="top-bar" ng-controller="NavigationCtrl">
+        <ul class="title-area">
+          <li class="name" ng-class="{ active: $route.current.activePage == 'home' }">
+            <h1><a href="/">Home</a></h1>
+          </li>
+          <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+        </ul>
+        <section class="top-bar-section">
+          <ul class="left">
+            <li class="divider"></li>
+            <li ng-class="{ active: $route.current.activePage == 'serviceOne' }">
+              <a href="#/serviceOne">serviceOne</a>
+            </li>
+          </ul>
+        </section>
+      </nav>
+  </div>
+</div>
+
+
+
 <div ng-view></div>
-</div>
-</div>
 
   <script>
   document.write('<script src=' +
@@ -69,10 +94,10 @@
   <script src="js/foundation/foundation.tooltips.js"></script>
   
   
-  <script src="js/foundation/foundation.topbar.js"></script>
-  <script src="js/foundation/foundation.section.js"></script>
   <script src="js/foundation/foundation.reveal.js"></script>
   -->
+  <script src="js/foundation/foundation.topbar.js"></script>
+  <script src="js/foundation/foundation.section.js"></script>
   
   <script>
     $(document).foundation();
