@@ -45,10 +45,14 @@ exports.routes = {
   
   get: [
     { path: "/one", action: "oneList" },  
+    { path: "/session", action: "getSession" },  
+    { path: "/complex", action: "complexList" },  
+    { path: "/fibonacci/:id/:number", action: "getFibonacci" },  
   ],
 
   post: [
     { path: "/one", action: "oneAdd" }, 
+    { path: "/complex", action: "complexAdd" }, 
   ]
 
 };

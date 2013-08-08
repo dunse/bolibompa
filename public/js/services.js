@@ -13,6 +13,18 @@ angular.module('Bolibompa.services', ['ngResource']).
       'query': { method: 'GET', params: { }, isArray : false },
     });
   }).
+  factory('SessionService', function ($resource) {
+    return $resource('api/session/:id', { id: '@id' }, {
+      'get': { method: 'GET', params: { }, isArray : false },
+      'query': { method: 'GET', params: { }, isArray : false },
+    });
+  }).
+  factory('FibonacciService', function ($resource) {
+    return $resource('api/fibonacci/:id/:number', { id: '@id', number: '@number' }, {
+      'get': { method: 'GET', params: { }, isArray : false },
+      'query': { method: 'GET', params: { }, isArray : false },
+    });
+  }).
   factory('ApiService', function ($resource) {
     return $resource('api/actionsView/:id', { id: '@id' }, {
      'get': { method: 'GET', params: { }, isArray : false },

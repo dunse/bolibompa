@@ -20,7 +20,7 @@ configData.general = {
   defaultLimit: 100,                                              // defaultLimit & defaultOffset are useful for limiting the length of response lists. 
   defaultOffset: 0,
   workers : 5,                                                    // The number of internal "workers" (timers) this node will have.
-  developmentMode: false,                                         // watch for changes in actions and tasks, and reload/restart them on the fly
+  developmentMode: true,                                         // watch for changes in actions and tasks, and reload/restart them on the fly
   pidFileDirectory: process.cwd() + "/pids/",                     // the location of the directory to keep pidfiles
   simultaniousActions: 5                                          // how many pending actions can a single connection be working on 
 };
@@ -62,7 +62,7 @@ configData.logger = {
 ///////////
 
 configData.redis = {
-  fake: true,
+  fake: false,
   host: "127.0.0.1",
   port: 6379,
   password: null,
@@ -78,6 +78,15 @@ configData.faye = {
   mount: "/faye",
   timeout: 45,
   ping: null,
+};
+
+/////////////
+// MongoDB //
+/////////////
+configData.mongo = {
+  enable: true,
+  host: "localhost",
+  port: 27017
 };
 
 /////////////
@@ -117,8 +126,8 @@ configData.servers = {
   //   keyFile: "./certs/server-key.pem",    // only for secure = true
   //   certFile: "./certs/server-cert.pem"   // only for secure = true
   // },
-  // "websocket" : {
-  // },
+  "websocket" : {
+  },
 }
 
 //////////////////////////////////

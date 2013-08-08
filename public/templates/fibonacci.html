@@ -1,0 +1,44 @@
+<style type="text/css">
+.animate-show, 
+.animate-hide
+{ 
+    -webkit-transition: 800ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -moz-transition: 800ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -ms-transition: 800ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -o-transition: 800ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    transition: 800ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+} 
+
+.animate-hide.animate-hide-active,
+.animate-show {
+    opacity: 0;
+}
+
+.animate-show.animate-show-active, 
+.animate-hide {
+    opacity: 1;
+}
+</style>
+
+<div class="row">
+  <div class="small-8 columns">
+    This example will make an HTTP GET request to the /api/fibonacci service, to calculate a Fibonacci numeric by iterating X number of times. The result will be sent back by WebSocket and presented on screen, using ng-animate for transitions.<br/><br/><br/>
+  </div>
+</div>
+
+<form>
+<div class="row">
+  <div class="small-3 columns">
+    <input type="text" ng-model="iterations" required placeholder="Number of iterations">
+  </div>
+  <div class="small-3 columns">
+    <input type="submit" class="button small" ng-click="getFib(iterations)" ng-disabled="form.$invalid" value="Query">
+    <input type="reset" class="button small" ng-click="number = ''" value="Clear">
+  </div>
+  <div class="small-6 columns">
+    <span class="label" ng-show="number != ''" ng-animate="'animate'">
+      {{number}}
+    </span>
+  </div>
+</div>
+</form>

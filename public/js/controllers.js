@@ -25,3 +25,62 @@ function ServiceOneCtrl($scope, $http, $location, $rootScope, $route, $routePara
     }
 	});
 }
+
+function FibonacciCtrl($scope, $http, $location, $rootScope, $route, $routeParams, $timeout, FibonacciService) {
+  $scope.number = -1;
+  $scope.thisActivePage = $route.current.activePage;
+
+  $scope.A = new actionHeroWebSocket({host: ''});
+  
+  $scope.A.log = function(message){
+    console.log(message);
+  };
+
+  $scope.A.events = {
+    disconnect: function(message){
+      $scope.A.log("DISCONNECTED");
+    },
+    reconnect: function(message){
+      $scope.A.log("RECONNECTED");
+      $scope.A.log("New ID: " + A.id);
+    },
+    say: function(message){
+      $scope.A.log("SAY:");
+      $scope.A.log(message)
+      if (message.type == "fibonacci") {
+        console.log("Setting $scope.number to " + message.value);
+        $scope.updateNumber(message.value);
+      }
+    },
+    welcome: function(message){
+      $scope.A.log("WELCOME:");
+      $scope.A.log(message);
+    },
+    alert: function(message){
+      $scope.A.log("ALERT:");
+      $scope.A.log(message);
+    }
+  }
+
+  $scope.A.connect(function(err, details){
+    if(err != null){
+      $scope.A.log(err);
+    }else{
+      $scope.A.log("CONNECTED");
+      $scope.A.log(details);
+      console.log("calling get...");
+    }
+  });
+
+  $scope.getFib = function(iterations) {
+    // Reset number to give transient effect
+    $scope.number = -1;
+    FibonacciService.get({number: iterations, id: $scope.A.id}, function(data) {
+      console.log('done:', data);
+    });
+  };
+  $scope.updateNumber = function(val) {
+    $scope.number = val;
+    $scope.$apply();
+  };
+}

@@ -2,8 +2,7 @@ bolibompa
 =========
 Run:  
 ```
-npm install actionHero
-./node_modules/.bin/actionHero generate
+npm install
 ./node_modules/.bin/actionHero start
 ```
 Hit:  

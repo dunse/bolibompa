@@ -27,6 +27,8 @@
   <script src="js/directives.js"></script>
 
   <script src="js/vendor/jquery.min.js"></script>
+  <script src="/faye/client.js"></script>
+  <script type="text/javascript" src="js/actionHeroWebSocket.js"></script>
 </head>
 <body>
 <div class="row">
@@ -49,6 +51,10 @@
             <li class="divider"></li>
             <li ng-class="{ active: $route.current.activePage == 'serviceOne' }">
               <a href="#/serviceOne">serviceOne</a>
+            </li>
+            <li class="divider"></li>
+            <li ng-class="{ active: $route.current.activePage == 'fibonacci' }">
+              <a href="#/fibonacci">fibonacci</a>
             </li>
           </ul>
         </section>

@@ -6,6 +6,7 @@ var bolibompa = angular.module('Bolibompa', ['Bolibompa.filters', 'Bolibompa.ser
   config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/', {templateUrl: 'templates/welcome.html', controller: MainCtrl, activePage: 'home'});
     $routeProvider.when('/serviceOne', {templateUrl: 'templates/serviceOne.html', controller: ServiceOneCtrl, activePage: 'serviceOne'});
+    $routeProvider.when('/fibonacci', {templateUrl: 'templates/fibonacci.html', controller: FibonacciCtrl, activePage: 'fibonacci'});
     $routeProvider.otherwise({redirectTo: '/'});
     
   }]);

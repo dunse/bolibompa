@@ -13,5 +13,10 @@
   "author": "",
   "license": "MIT",
   "readmeFilename": "README.md",
-  "gitHead": "ccc9480e466305551a255404344482e64ca64b89"
+  "gitHead": "ccc9480e466305551a255404344482e64ca64b89",
+  "dependencies": {
+    "actionHero": "*",
+    "cloneextend": "*",
+    "mongoose": "*"
+  }
 }
