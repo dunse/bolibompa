@@ -5,11 +5,22 @@ function NavigationCtrl($scope, $route) {
   $scope.$route = $route;
 }
 
-function MainCtrl($scope, $http, $location, $rootScope, $timeout, ApiService) {
+function MainCtrl($scope, $http, $location, $rootScope, $timeout, RoutesService, ApiService) {
+  $scope.actions = {};
   console.log('in MainCtrl');
   ApiService.query({}, function(data) {
-    $scope.mydata = data.actions;
+    data.actions.forEach(function(action) {
+      $scope.actions[action.name] = action;
+    });
+    console.log($scope.actions);
+    RoutesService.query({}, function(data) {
+      $scope.mydata = data.routes;
+    });
   });
+  $scope.getAction = function(name) {
+    console.log('Getting: ' + name);
+    return $scope.actions[name];
+  }
 }
 
 function ServiceOneCtrl($scope, $http, $location, $rootScope, $route, $routeParams, $timeout, OneService) {

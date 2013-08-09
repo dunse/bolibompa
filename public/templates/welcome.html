@@ -1,17 +1,11 @@
-<div class="row" ng-repeat="action in mydata">
+<div class="row" ng-repeat="route in mydata | orderBy:'path'">
 <div class="small-12 columns">
-<a href="#/serviceOne">Service One</a>
-<br/><br/>
-
-<div class="row">
-<div class="small-12 columns">
-<a href="/api/{{action.name}}">{{action.name}}</a> - {{action.description}}<br/>
-<strong>required: </strong>{{action.inputs.required}}<br/>
-<strong>optional:</strong>{{action.inputs.optional}}<br/>
+<strong>{{route.method.toUpperCase()}}</strong> - <a href="/api{{route.path}}">/api{{route.path}}</a> - {{getAction(route.action).description}}<br/>
+<strong>required: </strong>{{getAction(route.action).inputs.required}}<br/>
+<strong>optional:</strong>{{getAction(route.action).inputs.optional}}<br/>
 </div>
 </div>
 
 
-</div>
 </div>
 

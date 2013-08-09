@@ -25,6 +25,11 @@ angular.module('Bolibompa.services', ['ngResource']).
       'query': { method: 'GET', params: { }, isArray : false },
     });
   }).
+  factory('RoutesService', function ($resource) {
+    return $resource('api/routes/', { }, {
+     'query': { method: 'GET', params: { }, isArray : false },
+    });
+  }).
   factory('ApiService', function ($resource) {
     return $resource('api/actionsView/:id', { id: '@id' }, {
      'get': { method: 'GET', params: { }, isArray : false },
