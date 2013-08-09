@@ -12,14 +12,16 @@ function MainCtrl($scope, $http, $location, $rootScope, $timeout, RoutesService,
     data.actions.forEach(function(action) {
       $scope.actions[action.name] = action;
     });
-    console.log($scope.actions);
     RoutesService.query({}, function(data) {
       $scope.mydata = data.routes;
     });
   });
   $scope.getAction = function(name) {
-    console.log('Getting: ' + name);
     return $scope.actions[name];
+  }
+  $scope.stringify = function(string) {
+    console.log(string);
+    return JSON.stringify(string, null, '\t');
   }
 }
 

@@ -8,4 +8,16 @@ angular.module('Bolibompa.directives', []).
     return function(scope, elm, attrs) {
       elm.text(version);
     };
-  }]);
+  }])
+  .directive('onFinishRender', function ($timeout) {
+    return {
+        restrict: 'A',
+        link: function (scope, element, attr) {
+            if (scope.$last === true) {
+                $timeout(function () {
+                    Foundation.libs.section.reflow();
+                });
+            }
+        }
+    }
+});

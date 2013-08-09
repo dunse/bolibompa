@@ -1,11 +1,16 @@
-<div class="row" ng-repeat="route in mydata | orderBy:'path'">
+<div class="row">
 <div class="small-12 columns">
-<strong>{{route.method.toUpperCase()}}</strong> - <a href="/api{{route.path}}">/api{{route.path}}</a> - {{getAction(route.action).description}}<br/>
-<strong>required: </strong>{{getAction(route.action).inputs.required}}<br/>
-<strong>optional:</strong>{{getAction(route.action).inputs.optional}}<br/>
-</div>
-</div>
 
-
+<div data-section="vertical-tabs" class="section-container vertical-tabs" data-section-resized="true">
+  <section ng-repeat="route in mydata | orderBy:'path'" on-finish-render>
+    <p data-section-title="" class="title" style="top: 0px;"><a href="/#/"><strong>{{route.method.toUpperCase()}}</strong> - /api{{route.path}}</a></p>
+    <div data-section-content="" class="content" style="min-height: 151px;">
+      <p>
+        {{getAction(route.action).description}}<br/>
+        <strong>required: </strong>{{getAction(route.action).inputs.required}}<br/>
+        <strong>optional:</strong>{{getAction(route.action).inputs.optional}}<br/>
+        <strong>outputExample:</strong><pre class="codeblock">{{stringify(getAction(route.action).outputExample)}}</pre><br/>
+        </p>
+    </div>
+  </section>
 </div>
-

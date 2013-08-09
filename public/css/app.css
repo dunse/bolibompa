@@ -1,0 +1,11 @@
+[data-section="vertical-tabs"] > section > [data-section-title], [data-section="vertical-tabs"] > section > .title, [data-section="vertical-tabs"] > .section > [data-section-title], [data-section="vertical-tabs"] > .section > .title, [data-section="vertical-tabs"] > [data-section-region] > [data-section-title], [data-section="vertical-tabs"] > [data-section-region] > .title, .section-container.vertical-tabs > section > [data-section-title], .section-container.vertical-tabs > section > .title, .section-container.vertical-tabs > .section > [data-section-title], .section-container.vertical-tabs > .section > .title, .section-container.vertical-tabs > [data-section-region] > [data-section-title], .section-container.vertical-tabs > [data-section-region] > .title {
+          width: 22.5em !important;
+}
+html.js body div div.row div.small-12 div.section-container section.ng-scope {
+          padding-left: 22.4375em !important;
+}
+
+.codeblock {
+  border: black solid 1px;
+  padding: 5px;
+}
